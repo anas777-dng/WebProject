@@ -1,0 +1,206 @@
+﻿/*
+ * UniVerse Events - Final High-Contrast Squared Theme
+ * A professional, high-contrast theme for maximum readability and organization.
+ */
+
+/* Import a clean, modern font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+/* --- NEW High-Contrast Color Palette --- */
+:root {
+    --theme-bg-deep: #121212; /* Near-black background for max contrast */
+    --theme-bg-panel: #1e1e1e; /* Dark Gray panel/block background */
+    --theme-text-main: #f1f1f1; /* Bright Off-white for primary text */
+    --theme-text-muted: #b0b0b0; /* Lighter Gray for descriptions - MORE READABLE */
+    --theme-accent-primary: #9f7aea; /* Vibrant Purple for primary accent */
+    --theme-accent-secondary: #f687b3; /* Vibrant Pink for secondary accent/buttons */
+    --theme-border: #3a3a3a; /* Brighter Border color */
+
+    --theme-get: #00aeff; /* Vibrant Blue for GET */
+    --theme-post: #00f5a0; /* Vibrant Green for POST */
+    --theme-put: #ffc900; /* Vibrant Yellow for PUT */
+    --theme-delete: #ff4d4d; /* Vibrant Red for DELETE */
+}
+
+/* --- General Styling --- */
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: var(--theme-bg-deep);
+}
+
+.swagger-ui {
+    color: var(--theme-text-main);
+}
+
+    /* --- Top Bar (Header) --- */
+    .swagger-ui .topbar {
+        background-color: var(--theme-bg-panel);
+        border-bottom: 2px solid var(--theme-accent-primary);
+        padding: 12px 24px;
+    }
+
+    /* --- Main Title --- */
+    .swagger-ui .info .title {
+        color: white;
+        font-size: 2.25rem;
+    }
+
+    .swagger-ui .info .description,
+    .swagger-ui .info a {
+        color: var(--theme-text-muted); /* Using the more readable muted color */
+    }
+
+    /* 
+ * --- THEME GOAL: The "SQUARER" Block-Based Layout --- 
+*/
+    .swagger-ui .opblock-tag-section {
+        background-color: var(--theme-bg-panel);
+        border: 1px solid var(--theme-border);
+        border-radius: 4px; /* SHARP, SQUARE CORNERS */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        padding: 24px;
+        margin-bottom: 32px;
+    }
+
+    /* Styling the title inside the block (e.g., "Events", "Feedback") */
+    .swagger-ui .opblock-tag {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--theme-accent-primary);
+        border-bottom: 1px solid var(--theme-border);
+        padding-bottom: 16px;
+        margin: 0 0 16px 0;
+        text-transform: uppercase; /* Bolder, more distinct titles */
+        letter-spacing: 1px;
+    }
+
+    /* Styling Endpoint Rows */
+    .swagger-ui .opblock {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+    }
+
+        .swagger-ui .opblock:not(:last-of-type) {
+            border-bottom: 1px solid var(--theme-border);
+        }
+
+        .swagger-ui .opblock .opblock-summary {
+            border: none;
+            padding: 12px 0; /* Align with block padding */
+        }
+
+        /* --- HTTP Method Buttons (sharper) --- */
+        .swagger-ui .opblock .opblock-summary-method {
+            border-radius: 3px; /* SHARP, SQUARE CORNERS */
+            font-weight: 700;
+            text-shadow: none;
+            min-width: 80px;
+        }
+
+        /* Applying vibrant colors */
+        .swagger-ui .opblock.opblock-get .opblock-summary-method {
+            background: var(--theme-get);
+        }
+
+        .swagger-ui .opblock.opblock-post .opblock-summary-method {
+            background: var(--theme-post);
+        }
+
+        .swagger-ui .opblock.opblock-put .opblock-summary-method {
+            background: var(--theme-put);
+        }
+
+        .swagger-ui .opblock.opblock-delete .opblock-summary-method {
+            background: var(--theme-delete);
+        }
+
+        .swagger-ui .opblock.opblock-put .opblock-summary-method,
+        .swagger-ui .opblock.opblock-post .opblock-summary-method {
+            color: #111; /* Improve readability on yellow/green */
+        }
+
+        /* Bolder text on endpoint paths for readability */
+        .swagger-ui .opblock .opblock-summary-path {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--theme-text-muted);
+        }
+
+            .swagger-ui .opblock .opblock-summary-path .url {
+                color: var(--theme-text-main); /* Make the main URL path brighter */
+            }
+
+    /* --- CORE READABILITY FIX: Schemas Section --- */
+    .swagger-ui .schemas-overview {
+        padding-top: 24px;
+    }
+
+        .swagger-ui .schemas-overview > h4,
+        .swagger-ui .model-container .model-title,
+        .swagger-ui .model-title__text {
+            font-size: 1.5rem;
+            color: var(--theme-accent-primary); /* Use accent color for schema title */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--theme-border);
+            padding-bottom: 16px;
+        }
+
+    .swagger-ui .model-box {
+        background-color: rgba(0,0,0,0.1); /* Give schemas a subtle background */
+    }
+    /* Making schema names much more readable */
+    .swagger-ui .model-toggle:after {
+        border-color: var(--theme-text-main); /* Make the expand arrow visible */
+    }
+
+    .swagger-ui .model-toggle {
+        color: var(--theme-text-main); /* Make schema titles bright */
+        font-size: 1.1rem;
+    }
+    /* Make properties inside the schema readable */
+    .swagger-ui .model .property.primitive {
+        color: var(--theme-text-muted);
+    }
+
+    .swagger-ui .model-box .prop-name {
+        color: var(--theme-text-main);
+    }
+
+    .swagger-ui .model-box .prop-type {
+        color: var(--theme-accent-secondary); /* Use pink for data types */
+    }
+
+    .swagger-ui .model-box .prop-format {
+        color: var(--theme-get); /* Use blue for formats */
+    }
+
+    /* --- Buttons and Inputs --- */
+    .swagger-ui .btn {
+        border-radius: 3px; /* SHARP, SQUARE CORNERS */
+        font-weight: 700;
+        transition: all 0.2s ease;
+        border-width: 2px;
+    }
+
+        .swagger-ui .btn.try-out {
+            border-color: var(--theme-accent-secondary);
+            color: var(--theme-accent-secondary);
+        }
+
+            .swagger-ui .btn.try-out:hover {
+                background: var(--theme-accent-secondary);
+                color: white;
+            }
+
+        .swagger-ui .btn.execute {
+            background-color: var(--theme-accent-secondary);
+            border-color: var(--theme-accent-secondary);
+            color: white;
+        }
+
+            .swagger-ui .btn.execute:hover {
+                filter: brightness(1.2);
+            }
